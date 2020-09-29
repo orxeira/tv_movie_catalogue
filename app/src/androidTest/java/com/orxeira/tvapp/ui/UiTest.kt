@@ -58,6 +58,5 @@ class UiTest : KoinTest {
 
         onView(withId(R.id.movieDetailToolbar))
             .check(matches(hasDescendant(withText("Spider-Man: Far from Home"))))
-
     }
 }
