@@ -8,7 +8,6 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.rule.ActivityTestRule
-import androidx.test.rule.GrantPermissionRule
 import com.jakewharton.espresso.OkHttp3IdlingResource
 import com.orxeira.tvapp.R
 import com.orxeira.tvapp.data.server.TheMovieDb
@@ -28,12 +27,6 @@ class TvShowsUITest : KoinTest {
 
     @get:Rule
     val activityTestRule = ActivityTestRule(TvShowMainActivity::class.java, false, false)
-
-//    @get:Rule
-//    val grantPermissionRule: GrantPermissionRule =
-//        GrantPermissionRule.grant(
-//            "android.permission.ACCESS_COARSE_LOCATION"
-//        )
 
     @Before
     fun setUp() {
