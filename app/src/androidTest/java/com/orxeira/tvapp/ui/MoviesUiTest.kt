@@ -21,7 +21,7 @@ import org.junit.Test
 import org.koin.test.KoinTest
 import org.koin.test.get
 
-class UiTest : KoinTest {
+class MoviesUiTest : KoinTest {
 
     @get:Rule
     val mockWebServerRule = MockWebServerRule()
