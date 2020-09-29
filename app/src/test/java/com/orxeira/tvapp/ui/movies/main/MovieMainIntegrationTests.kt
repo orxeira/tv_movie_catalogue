@@ -6,7 +6,7 @@ import com.nhaarman.mockitokotlin2.verify
 import com.orxeira.data.source.MovieLocalDataSource
 import com.orxeira.domain.Movie
 import com.orxeira.tvapp.testshared.mockedMovie
-import com.orxeira.tvapp.ui.FakeLocalDataSource
+import com.orxeira.tvapp.ui.FakeMovieLocalDataSource
 import com.orxeira.tvapp.ui.defaultFakeMovies
 import com.orxeira.tvapp.ui.initMockedDi
 import com.orxeira.tvapp.ui.movies.moviemain.MovieMainViewModel
@@ -55,7 +55,7 @@ class MainIntegrationTests : AutoCloseKoinTest() {
     @Test
     fun `data is loaded from local source when available`() {
         val fakeLocalMovies = listOf(mockedMovie.copy(10), mockedMovie.copy(11))
-        val localDataSource = get<MovieLocalDataSource>() as FakeLocalDataSource
+        val localDataSource = get<MovieLocalDataSource>() as FakeMovieLocalDataSource
         localDataSource.movies = fakeLocalMovies
         vm.movies.observeForever(movieObserver)
 

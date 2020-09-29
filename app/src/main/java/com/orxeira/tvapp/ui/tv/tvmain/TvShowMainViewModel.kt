@@ -9,7 +9,7 @@ import com.orxeira.usecases.GetPopularTvShows
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 
-class TvMainViewModel(
+class TvShowMainViewModel(
     private val getPopularTvShows: GetPopularTvShows,
     uiDispatcher: CoroutineDispatcher
 ) : ScopedViewModel(uiDispatcher) {

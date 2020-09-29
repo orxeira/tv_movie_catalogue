@@ -16,16 +16,17 @@ import com.orxeira.tvapp.data.database.MovieRoomDataSource
 import com.orxeira.tvapp.data.database.TvShowRoomDataSource
 import com.orxeira.tvapp.data.server.TheMovieDb
 import com.orxeira.tvapp.data.server.TheMovieDbDataSource
+import com.orxeira.tvapp.ui.MainActivity
+import com.orxeira.tvapp.ui.MainViewModel
 import com.orxeira.tvapp.ui.movies.moviedetail.MovieDetailActivity
 import com.orxeira.tvapp.ui.movies.moviedetail.MovieDetailViewModel
 import com.orxeira.tvapp.ui.movies.moviemain.MovieMainActivity
 import com.orxeira.tvapp.ui.movies.moviemain.MovieMainViewModel
-import com.orxeira.tvapp.ui.tv.tvmain.TvMainActivity
-import com.orxeira.tvapp.ui.tv.tvmain.TvMainViewModel
-import com.orxeira.usecases.FindMovieById
-import com.orxeira.usecases.GetPopularMovies
-import com.orxeira.usecases.GetPopularTvShows
-import com.orxeira.usecases.ToggleMovieFavorite
+import com.orxeira.tvapp.ui.tv.tvdetail.TvShowDetailActivity
+import com.orxeira.tvapp.ui.tv.tvdetail.TvShowDetailViewModel
+import com.orxeira.tvapp.ui.tv.tvmain.TvShowMainActivity
+import com.orxeira.tvapp.ui.tv.tvmain.TvShowMainViewModel
+import com.orxeira.usecases.*
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidApplication
@@ -65,6 +66,11 @@ val dataModule = module {
 }
 
 private val scopesModule = module {
+
+    scope(named<MainActivity>()) {
+        viewModel { MainViewModel() }
+    }
+
     scope(named<MovieMainActivity>()) {
         viewModel { MovieMainViewModel(get(), get()) }
         scoped { GetPopularMovies(get()) }
@@ -76,8 +82,14 @@ private val scopesModule = module {
         scoped { ToggleMovieFavorite(get()) }
     }
 
-    scope(named<TvMainActivity>()) {
-        viewModel { TvMainViewModel(get(), get()) }
+    scope(named<TvShowMainActivity>()) {
+        viewModel { TvShowMainViewModel(get(), get()) }
         scoped { GetPopularTvShows(get()) }
+    }
+
+    scope(named<TvShowDetailActivity>()) {
+        viewModel { (id: Int) -> TvShowDetailViewModel(id, get(), get(), get()) }
+        scoped { FindTvShowById(get()) }
+        scoped { ToggleTvShowFavorite(get()) }
     }
 }

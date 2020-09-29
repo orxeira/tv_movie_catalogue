@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Tv Catalogue</string>
+    <string name="app_name">Tv Movie Catalogue</string>
+    <string name="ib_movies_title">Movies</string>
+    <string name="ib_tv_shows_title">TvShows</string>
 </resources>

@@ -7,24 +7,32 @@
 
     <application
         android:name=".TvMovieCatalogue"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.tv.tvdetail.TvShowDetailActivity"></activity>
-        <activity android:name=".ui.tv.tvmain.TvMainActivity" />
-        <activity
-            android:name=".ui.movies.moviedetail.MovieDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.movies.moviemain.MovieMainActivity">
+
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.tv.tvdetail.TvShowDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".ui.tv.tvmain.TvShowMainActivity" />
+
+        <activity
+            android:name=".ui.movies.moviedetail.MovieDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".ui.movies.moviemain.MovieMainActivity" />
     </application>
 
 </manifest>
